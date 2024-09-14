@@ -52,7 +52,7 @@
         h1 {
             font-size: 24px;
             color: #333;
-            margin-top: 60px;
+            margin-top: 20px;
             font-weight: 600;
             transition: color 0.3s ease;
         }
@@ -160,7 +160,7 @@
 </head>
 <body>
     <div class="card">
-        <img src="/image/irfanur Tahsin.JPG" alt="Irfanur Tahsin">
+        <img src="/image/irfanurtahsin.png" alt="Irfanur Tahsin" class="profile-img">
         <h1>Irfanur Tahsin</h1>
         <p class="tagline">Crafting Stunning Video Edits to Tell Your Story</p>
 
@@ -190,7 +190,7 @@
 
         <!-- Action Buttons Section -->
         <div class="action-buttons">
-            <a href="#" onclick="alert('Contact details saved!')">
+            <a href="#" id="save-button">
                 <img src="https://img.icons8.com/color/48/000000/add-user-male.png" alt="Save">
                 <p>Save</p>
             </a>
@@ -213,5 +213,17 @@
             <p>Check Out My Website: <a href="https://irfanurtahsin.com">irfanurtahsin.com</a></p>
         </div>
     </div>
+    <script>
+        document.getElementById('save-button').addEventListener('click', function(event) {
+            event.preventDefault();
+            const content = 'Contact details saved!';
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'contact-details.txt';
+            link.click();
+            URL.revokeObjectURL(link.href);
+        });
+    </script>
 </body>
 </html>
